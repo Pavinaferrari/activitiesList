@@ -17,12 +17,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6Og-KN-GKC">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="ActivitiesListItem" id="2N1-Gh-jDS">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Og-KN-GKC" id="AcS-Ot-QsF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2N1-Gh-jDS" id="dn9-Pe-BxI">
+                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F8f-OW-4nl">
+                                            <rect key="frame" x="20" y="11" width="295" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="F8f-OW-4nl" firstAttribute="bottom" secondItem="dn9-Pe-BxI" secondAttribute="bottomMargin" id="2o7-Jd-Grr"/>
+                                        <constraint firstItem="F8f-OW-4nl" firstAttribute="top" secondItem="dn9-Pe-BxI" secondAttribute="topMargin" id="TmU-8I-lem"/>
+                                        <constraint firstItem="F8f-OW-4nl" firstAttribute="centerX" secondItem="dn9-Pe-BxI" secondAttribute="centerX" id="tFu-UC-Q4Z"/>
+                                        <constraint firstItem="F8f-OW-4nl" firstAttribute="leading" secondItem="dn9-Pe-BxI" secondAttribute="leadingMargin" constant="4" id="xJj-eb-A5e"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -34,7 +48,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ANZ-UM-87N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84" y="-282"/>
+            <point key="canvasLocation" x="84" y="-282.00899550224892"/>
         </scene>
     </scenes>
 </document>
