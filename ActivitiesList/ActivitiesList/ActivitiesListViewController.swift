@@ -9,6 +9,15 @@
 import UIKit
 
 class ActivitiesListViewController: UITableViewController {
+    
+    var activities: Activities
+    
+    required init?(coder aDecoder: NSCoder) {
+        
+        activities = Activities()
+        
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,37 +25,39 @@ class ActivitiesListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1000
+        return activities.activityItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActivitiesListItem", for: indexPath)
-        
-        if let label = cell.viewWithTag(1000) as? UILabel {
-            if indexPath.row % 5 == 0 {
-                label.text = "Go to gym"
-            } else if indexPath.row % 5 == 1 {
-                label.text = "Read the book"
-            } else if indexPath.row % 5 == 2 {
-                label.text = "Go to date"
-            } else if indexPath.row % 5 == 3 {
-                label.text = "Play Uncharted 2"
-            } else if indexPath.row % 5 == 4 {
-                label.text = "Study English"
-            }
-        }
+
+        let item = activities.activityItems[indexPath.row]
+        configureText(for: cell, with: item)
+        configureCheckmark(for: cell, with: item)
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = activities.activityItems[indexPath.row]
         if let cell = tableView.cellForRow(at: indexPath) {
-            if cell.accessoryType == .none {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
+            configureCheckmark(for: cell, with: item)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func configureText(for cell: UITableViewCell, with item: ActivitiesListItem) {
+        if let label = cell.viewWithTag(1000) as? UILabel {
+            label.text = item.text
+        }
+    }
+    
+    func configureCheckmark(for cell: UITableViewCell, with item: ActivitiesListItem) {
+        if item.checked {
+            cell.accessoryType = .none
+        } else {
+            cell.accessoryType = .checkmark
+        }
+        item.toggleChecked()
     }
 }
 
