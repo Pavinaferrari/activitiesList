@@ -30,4 +30,18 @@ class Activities {
         activityItems.append(row3Item)
         activityItems.append(row4Item)
     }
+    
+    private func randomTitle() -> String {
+        var titles = ["Watch Rallycross", "Clean the house", "Drink a coffe", "Eat a stake", "Mind a Jellybaby"]
+        let randomNumber = Int.random(in: 0...titles.count - 1)
+        return titles[randomNumber]
+    }
+    
+    func newActivity() -> ActivitiesListItem {
+        let item = ActivitiesListItem()
+        item.text = randomTitle()
+        item.checked = true
+        activityItems.append(item)
+        return item
+    }
 }
